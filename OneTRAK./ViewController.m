@@ -32,14 +32,26 @@
     
     
     NSInteger score1 = [self.textField.text  integerValue];
-    score1 = pow(score1,2);
-    NSString *string = [NSString stringWithFormat:@"%li",(long)score1];
+//    score1 = pow(score1,2);
+    [self squared:score1];
+  
+    NSString *string = [NSString stringWithFormat:@"%li",(long)[self squared:score1]];
     self.resultCountUp.text = string;
     self.numberTimes = _numberTimes +1;
     self.scorer.text = [NSString stringWithFormat:@"%li",(long)self.numberTimes];
 
 
 }
+
+- (NSInteger) squared :(NSInteger) integer {
+    NSInteger integerRes = integer;
+    for (int i=1; integer > i; i++) {
+        integerRes = integerRes+integer;
+    }
+    return integerRes;
+
+}
+
 
 
 - (void)viewDidLoad {
